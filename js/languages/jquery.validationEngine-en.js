@@ -88,6 +88,10 @@
                     "regex": /^[\-\+]?(([0-9]+)([\.,]([0-9]+))?|([\.,]([0-9]+))?)$/,
                     "alertText": "* Invalid floating decimal number"
                 },
+                "price": {
+                    "regex": /^[$]?[0-9]*(\.)?[0-9]?[0-9]?$/,
+                    "alertText": "* Invalid price, $ optional X.XX format"
+                },
                 "date": {
                     "regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/,
                     "alertText": "* Invalid date, must be in YYYY-MM-DD format"
