@@ -55,17 +55,30 @@ First include jQuery on your page
 javascript"></script>
 ```
     
-Include *jquery.validationEngine* and its locale
+Include *jquery.validationEngine* and its locale locally
 
 ```html
 <script src="js/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 ```
 
-Finally include the desired theme
+or from the hosted version available through gh-pages
+
+```html
+<script src="http://fstplayground.github.com/jQuery-Validation-Engine/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://fstplayground.github.com/jQuery-Validation-Engine/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+```
+
+Finally include the desired theme style sheet locally
 
 ```html
 <link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
+```
+
+or from the hosted version available through gh-pages
+
+```html
+<link rel="stylesheet" href="http://fstplayground.github.com/jQuery-Validation-Engine/css/validationEngine.jquery.css" type="text/css"/>
 ```
 
 ### Field Validations
