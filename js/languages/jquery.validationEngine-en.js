@@ -90,7 +90,7 @@
                 },
                 "price": {
                     "regex": /^[$]?[0-9]*(\.)?[0-9]?[0-9]?$/,
-                    "alertText": "* Invalid price, $ optional X.XX format"
+                    "alertText": "* Invalid price, must be in ($)X.XX format"
                 },
                 "date": {
                     "regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/,
