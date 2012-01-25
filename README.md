@@ -81,6 +81,15 @@ or from the hosted version available through gh-pages
 <link rel="stylesheet" href="http://fstplayground.github.com/jQuery-Validation-Engine/css/validationEngine.jquery.css" type="text/css"/>
 ```
 
+an optimized english version w/ css is also available
+
+```html
+<script src="http://fstplayground.github.com/jQuery-Validation-Engine/js/jquery.validationEngine-min-en.js" type="text/javascript" charset="utf-8"></script>
+```
+```html
+<link rel="stylesheet" href="http://fstplayground.github.com/jQuery-Validation-Engine/css/validationEngine.jquery-min" type="text/css"/>
+```
+
 ### Field Validations
 
 Validations are defined using the field's **class** attribute. Here are a few examples showing how it happens:
