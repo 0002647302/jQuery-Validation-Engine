@@ -65,8 +65,8 @@ Include *jquery.validationEngine* and its locale locally
 or from the hosted version available through gh-pages
 
 ```html
-<script src="http://fstplayground.github.com/jQuery-Validation-Engine/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://fstplayground.github.com/jQuery-Validation-Engine/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://TwistedUmbrella.github.com/jQuery-Validation-Engine/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://TwistedUmbrella.github.com/jQuery-Validation-Engine/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 ```
 
 Finally include the desired theme style sheet locally
@@ -78,16 +78,16 @@ Finally include the desired theme style sheet locally
 or from the hosted version available through gh-pages
 
 ```html
-<link rel="stylesheet" href="http://fstplayground.github.com/jQuery-Validation-Engine/css/validationEngine.jquery.css" type="text/css"/>
+<link rel="stylesheet" href="http://TwistedUmbrella.github.com/jQuery-Validation-Engine/css/validationEngine.jquery.css" type="text/css"/>
 ```
 
 an optimized english version w/ css is also available
 
 ```html
-<script src="http://fstplayground.github.com/jQuery-Validation-Engine/js/jquery.validationEngine-min-en.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://TwistedUmbrella.github.com/jQuery-Validation-Engine/js/jquery.validationEngine-min-en.js" type="text/javascript" charset="utf-8"></script>
 ```
 ```html
-<link rel="stylesheet" href="http://fstplayground.github.com/jQuery-Validation-Engine/css/validationEngine.jquery-min" type="text/css"/>
+<link rel="stylesheet" href="http://TwistedUmbrella.github.com/jQuery-Validation-Engine/css/validationEngine.jquery-min" type="text/css"/>
 ```
 
 ### Field Validations
