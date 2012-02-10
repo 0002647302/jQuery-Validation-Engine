@@ -1,5 +1,5 @@
 /*
- * Inline Form Validation Engine 2.5, jQuery plugin
+ * Inline Form Validation Engine 2.5.1, jQuery plugin
  *
  * Copyright(c) 2010, Cedric Dugas
  * http://www.position-absolute.com
@@ -181,8 +181,10 @@
 		* Closes all error prompts on the page
 		*/
 		hidePrompt: function() {
+			var form = this;
+			var options = form.data('jqv');
 			var promptClass =  "."+ methods._getClassName($(this).attr("id")) + "formError";
-			$(promptClass).fadeTo("fast", 0.3, function() {
+			$(promptClass).fadeTo(options.fadeDuration, 0.3, function() {
 				$(this).parent('.formErrorOuter').remove();
 				$(this).remove();
 			});
@@ -192,13 +194,15 @@
 		* Closes form error prompts, CAN be invidual
 		*/
 		 hide: function() {
+			 var form = this;
+			 var options = form.data('jqv');
 			 var closingtag;
 			 if($(this).is("form")){
 				 closingtag = "parentForm"+methods._getClassName($(this).attr("id"));
 			 }else{
 				 closingtag = methods._getClassName($(this).attr("id")) +"formError";
 			 }
-			 $('.'+closingtag).fadeTo("fast", 0.3, function() {
+			 $('.'+closingtag).fadeTo(options.fadeDuration, 0.3, function() {
 				 $(this).parent('.formErrorOuter').remove();
 				 $(this).remove();
 			 });
@@ -208,7 +212,9 @@
 		 * Closes all error prompts on the page
 		 */
 		 hideAll: function() {
-			 $('.formError').fadeTo("fast", 0.3, function() {
+			 var form = this;
+			 var options = form.data('jqv');
+			 $('.formError').fadeTo(options.fadeDuration, 0.3, function() {
 				 $(this).parent('.formErrorOuter').remove();
 				 $(this).remove();
 			 });
@@ -620,7 +626,7 @@
 				case "textarea":
 				case "file":
 				default:
-					if (!field.val())
+					if (!($.trim(field.val())))
 						return options.allrules[rules[i]].alertText;
 					break;
 				case "radio":
@@ -1187,7 +1193,7 @@
 					break;
 				default:
 					/* it has error  */
-					options.InvalidCount++;
+					//alert("unknown popup type:"+type);
 			}
 			if (ajaxed)
 				prompt.addClass("ajaxed");
@@ -1201,8 +1207,11 @@
 
 				//prompt positioning adjustment support. Usage: positionType:Xshift,Yshift (for ex.: bottomLeft:+20 or bottomLeft:-20,+10)
 				var positionType=field.data("promptPosition") || options.promptPosition;
-				if (typeof(positionType)=='string' && positionType.indexOf(":")!=-1) {
-					positionType=positionType.substring(0,positionType.indexOf(":"));
+				if (typeof(positionType)=='string') 
+				{
+					var pos=positionType.indexOf(":");
+				 	if(pos!=-1)
+						positionType=positionType.substring(0,pos);
 				}
 
 				switch (positionType) {
@@ -1218,6 +1227,9 @@
 						break;
 				}
 			}
+			// Modify z-indexes  for jquery ui
+			if (field.closest('.ui-dialog').length)
+				prompt.addClass('formErrorInsideDialog');
 
 			if (options.relative) {
 				// empty relative span does not disturb page layout
@@ -1250,16 +1262,12 @@
 					},function(){
 						prompt.closest('.formErrorOuter').remove();
 						prompt.remove();
-					})
-				}, options.autoHideDelay)
-				return prompt.animate({
-					"opacity": 0.87
-				})
-			} else {
-				return prompt.animate({
-					"opacity": 0.87
-				});
-			}
+					});
+				}, options.autoHideDelay);
+			} 
+			return prompt.animate({
+				"opacity": 0.87
+			});
 		},
 		/**
 		* Updates the prompt text field - the field for which the prompt
@@ -1298,7 +1306,7 @@
 				if (noAnimation)
 					prompt.css(css);
 				else
-					prompt.animate(css)
+					prompt.animate(css);
 			}
 		},
 		/**
@@ -1647,7 +1655,9 @@
 		// Auto-hide prompt
 		autoHidePrompt: false,
 		// Delay before auto-hide
-		autoHideDelay: 10000
+		autoHideDelay: 10000,
+		// Fade out duration while hiding the validations
+		fadeDuration: 0.3
 	}};
 	$(function(){$.validationEngine.defaults.promptPosition = methods.isRTL()?'topLeft':"topRight"});
 })(jQuery);
